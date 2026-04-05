@@ -1,16 +1,59 @@
-# mini_ecommerce_app
+# Mini E-Commerce App (Flutter)
 
-A new Flutter project.
+A simple **Flutter e-commerce app** with:
 
-## Getting Started
+- Authentication (Register & Login)
+- Product listing with images
+- Cart management
+- Order submission
+- Local storage for token
+- Uses **Cubit state management** and **Dio** for API requests
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🛠 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Authentication
+- Register & Login screens
+- Token stored locally (SharedPreferences)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Products
+- Fetch products from API using Dio
+- Show product image, name, price, and stock status
+- Styled product cards with **GridView**
+
+### Cart
+- Add/Remove products
+- Show total price
+- Checkout button
+
+### Orders
+- Submit order with **address** & **phone**
+- Confirmation message
+- Cart cleared after submission
+
+---
+
+## 📂 Project Structure
+
+ib/
+├── features/
+│ ├── auth/
+│ │ ├── auth_cubit.dart
+│ │ ├── auth_state.dart
+│ │ ├── register_cubit.dart
+│ │ ├── register_state.dart
+│ │ ├── login_screen.dart
+│ │ └── register_screen.dart
+│ ├── products/
+│ │ ├── product_cubit.dart
+│ │ ├── product_state.dart
+│ │ ├── product_model.dart
+│ │ └── product_screen.dart
+│ ├── cart/
+│ │ ├── cart_cubit.dart
+│ │ ├── cart_state.dart
+│ │ └── cart_screen.dart
+│ └── order/
+│ └── order_screen.dart
+└── main.dart
