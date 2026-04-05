@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'features/auth/login_screen.dart';
+import 'features/auth/cubit/auth_cubit.dart';
+import 'features/cart/cubit/cart_cubit.dart';
+import 'features/products/cubit/product_cubit.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (_) => CartCubit()), //
+        BlocProvider(create: (_) => AuthCubit()), //
+        BlocProvider(create: (_) => ProductCubit()),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -11,11 +25,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'E-Commerce App',
-      home: Scaffold(
-        body: Center(child: Text("App Started")),
-      ),
+      home: BlocProvider(create: (_) => AuthCubit(), child: LoginScreen()),
     );
   }
-
 }
